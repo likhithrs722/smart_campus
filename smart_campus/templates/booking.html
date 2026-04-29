@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Booking</title>
+
+<style>
+body { margin:0; font-family:'Segoe UI'; background:#f4f6f9; }
+
+header {
+    background:#1e293b;
+    color:white;
+    padding:15px;
+    text-align:center;
+}
+
+.stats {
+    display:flex;
+    gap:20px;
+    padding:20px;
+}
+
+.stat {
+    flex:1;
+    background:#1e293b;
+    color:white;
+    padding:20px;
+    border-radius:10px;
+    text-align:center;
+}
+
+.container {
+    display:flex;
+    gap:20px;
+    padding:20px;
+}
+
+.left, .right {
+    background:white;
+    padding:20px;
+    border-radius:10px;
+    flex:1;
+}
+
+.booking {
+    background:#1e293b;
+    color:white;
+    padding:10px;
+    margin-top:10px;
+    border-radius:8px;
+}
+</style>
+
+</head>
+
+<body>
+
+<header>
+    📅 {{ branch }} | 👤 {{ user }} ({{ role }}) |
+    <a href="/logout" style="color:white;">Logout</a>
+</header>
+
+<div class="stats">
+    <div class="stat"><h3>{{ resources|length }}</h3><p>Rooms</p></div>
+    <div class="stat"><h3>{{ bookings|length }}</h3><p>Bookings</p></div>
+    <div class="stat"><h3>{{ slots|length }}</h3><p>Slots</p></div>
+</div>
+
+<div class="container">
+
+<div class="left">
+<h2>📅 Smart Room Booking</h2>
+
+<form method="POST" action="/book">
+<input type="hidden" name="branch" value="{{ branch }}">
+
+<select name="resource">
+{% for r in resources %}
+<option value="{{ r[1] }}">
+{{ r[1] }} - 
+{% if r[3] == "Classroom" %}
+👥 50 Students | 📽️ Projector
+{% elif r[3] == "Lab" %}
+💻 Full Equipment Lab
+{% elif r[3] == "Seminar Hall" %}
+👥 200 Seats | 📽️ 3 Projectors | 📺 Smart Displays
+{% elif r[3] == "Library" %}
+📚 200+ Books
+{% endif %}
+</option>
+{% endfor %}
+</select>
+
+<input type="date" name="date" required>
+
+<select name="time">
+{% for s in slots %}
+<option>{{ s }}</option>
+{% endfor %}
+</select>
+
+<button>Book</button>
+</form>
+</div>
+
+<div class="right">
+<h2>Live Bookings</h2>
+
+{% for b in bookings %}
+<div class="booking">
+<b>{{ b[1] }}</b><br>
+📅 {{ b[2] }} ⏰ {{ b[3] }}<br>
+👤 {{ b[4] }} ({{ b[5] }})
+</div>
+{% endfor %}
+
+</div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    <style>
+        body {
+            font-family: Arial;
+            background: #0f2027;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            height:100vh;
+        }
+        .box {
+            background:white;
+            padding:30px;
+            border-radius:10px;
+            width:300px;
+        }
+        input, button {
+            width:100%;
+            padding:10px;
+            margin-top:10px;
+        }
+        button {
+            background:#19c37d;
+            color:white;
+            border:none;
+        }
+    </style>
+</head>
+<body>
+
+<div class="box">
+    <h2>Login</h2>
+
+    {% if error %}
+    <p style="color:red;">{{ error }}</p>
+    {% endif %}
+
+    <form method="POST">
+        <input name="username" placeholder="Username">
+        <input name="password" type="password" placeholder="Password">
+        <button>Login</button>
+    </form>
+
+    <p style="font-size:12px;">admin/admin or student1/123</p>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>PESITM Smart Campus</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI';
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+            color: white;
+        }
+
+        /* HEADER */
+        .header {
+            text-align: center;
+            padding: 50px 20px 20px;
+        }
+
+        .header h1 {
+            font-size: 48px;
+            margin-bottom: 10px;
+        }
+
+        .header h2 {
+            font-size: 28px;
+            font-weight: 500;
+            opacity: 0.9;
+        }
+
+        .header p {
+            opacity: 0.7;
+            font-size: 16px;
+        }
+
+        <a href="/logout" style="
+            display:inline-block;
+            margin-top:10px;
+            padding:8px 15px;
+            background:#19c37d;
+            color:white;
+            border-radius:8px;
+            text-decoration:none;
+        ">Logout</a>
+
+        /* HERO IMAGE */
+        .hero {
+            width: 70%;
+            height: 800px;
+            margin: 30px auto;
+            border-radius: 15px;
+            background: url("/static/campus.jpg") center/cover;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+        }
+
+        /* CARDS */
+        .container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 50px;
+        }
+
+        .card {
+            background: rgba(255,255,255,0.1);
+            padding: 30px;
+            width: 240px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            transition: 0.3s;
+            text-align: center;
+        }
+
+        .card:hover {
+            transform: scale(1.08);
+            background: rgba(255,255,255,0.2);
+        }
+
+        .card h3 {
+            font-size: 22px;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            font-size: 14px;
+            opacity: 0.8;
+        }
+
+        button {
+            margin-top: 15px;
+            padding: 10px 20px;
+            border: none;
+            background: #19c37d;
+            color: white;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        /* DETAILS SECTION */
+        .details {
+            background: white;
+            color: black;
+            padding: 40px;
+            margin-top: 50px;
+            text-align: center;
+        }
+
+        .details h2 {
+            margin-bottom: 15px;
+        }
+
+        .features {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 30px;
+        }
+
+        .feature {
+            width: 200px;
+        }
+
+    </style>
+</head>
+
+<body>
+
+<div class="header">
+    <h2>🏫 Smart Campus Resource Optimizer</h2>
+
+    <!-- BIGGER UNIVERSITY NAME -->
+    <h1>PES Institute of Technology and Management,shivamogga</h1>
+
+    <p>Optimize classrooms, labs, and campus resources efficiently</p>
+</div>
+
+<!-- HERO IMAGE -->
+<div class="hero"></div>
+
+<!-- BRANCH CARDS -->
+<div class="container">
+
+    <form action="/booking" method="GET">
+        <input type="hidden" name="branch" value="CSE">
+        <div class="card">
+            <h3>💻 Computer Science</h3>
+            <p>20 Classrooms • 5 Labs • Library • Seminar Hall</p>
+            <button>Enter</button>
+        </div>
+    </form>
+
+    <form action="/booking" method="GET">
+        <input type="hidden" name="branch" value="ECE">
+        <div class="card">
+            <h3>📡 Electronics</h3>
+            <p>20 Classrooms • 5 Labs • Library • Seminar Hall</p>
+            <button>Enter</button>
+        </div>
+    </form>
+
+    <form action="/booking" method="GET">
+        <input type="hidden" name="branch" value="AIML">
+        <div class="card">
+            <h3>🤖 AI & ML</h3>
+            <p>20 Classrooms • 5 Labs • Library • Seminar Hall</p>
+            <button>Enter</button>
+        </div>
+    </form>
+
+</div>
+
+<!-- UNIVERSITY DETAILS -->
+<div class="details">
+
+    <h2>About PESITM</h2>
+    <p>
+        PES Institute of Technology and Management is a leading engineering institution
+        focused on innovation, research, and smart infrastructure development.
+    </p>
+
+    <div class="features">
+
+        <div class="feature">
+            <h3>🏢 60+ Rooms</h3>
+            <p>Smart allocation of classrooms and labs</p>
+        </div>
+
+        <div class="feature">
+            <h3>⚡ Real-time Booking</h3>
+            <p>Instant availability and scheduling</p>
+        </div>
+
+        <div class="feature">
+            <h3>📊 Optimization</h3>
+            <p>AI-based resource utilization</p>
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>
